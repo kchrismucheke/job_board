@@ -9,6 +9,9 @@
     <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', "https://js.stripe.com/v2/", "https://js.stripe.com/v3/", 'data-turbolinks-track': 'reload' %>
+
+    <%= tag :meta, name: "stripe-public-key", content: Figaro.env.stripe_publishable_key %>
   </head>
 
   <body class="<%= yield (:body_class) %>">
@@ -40,6 +43,9 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="field is-grouped">
+            <p class="control">
+              <%= link_to 'Post Job', new_job_path, class:"navbar-item button is-primary is-rounded" %>
+            </p>
             <% if user_signed_in? %>
 
               <div class="navbar-item has-dropdown is-hoverable">
@@ -74,7 +80,7 @@
     <div class="container">
       <div class="content has-text-centered">
         <p>
-        Visit <a href="https://web-crunch.com" target="_blank">Web-Crunch.com</a> for more builds like this one.
+        Visit <a href="https://github.com/kchrismucheke" target="_blank">Github</a> for more builds like this one.
         </p>
       </div>
     </div>
