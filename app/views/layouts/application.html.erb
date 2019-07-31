@@ -3,12 +3,10 @@
   <head>
     <title><%= Rails.configuration.application_name %></title>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', "https://js.stripe.com/v2/", "https://js.stripe.com/v3/", 'data-turbolinks-track': 'reload' %>
 
     <%= tag :meta, name: "stripe-public-key", content: Figaro.env.stripe_publishable_key %>
@@ -44,7 +42,7 @@
           <div class="navbar-item">
             <div class="field is-grouped">
             <p class="control">
-              <%= link_to 'Post Job', new_job_path, class:"navbar-item button is-primary is-rounded" %>
+              <%= link_to 'Post Job', new_job_path, class: "navbar-item button is-primary is-rounded" %>
             </p>
             <% if user_signed_in? %>
 
@@ -70,11 +68,8 @@
     </div>
   </nav>
 
-  <section class="section">
-    <div class="container">
-      <%= yield %>
-    </div>
-  </section>
+
+  <%= yield %>
 
   <footer class="footer">
     <div class="container">

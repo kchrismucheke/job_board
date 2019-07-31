@@ -1,1 +1,1 @@
-json.array! @jobs, partial: "jobs/job", as: :job
+json.array! @jobs, partial: 'jobs/job', as: :job
